@@ -82,7 +82,7 @@ def put_inventory_purchase(beverage_id: int):
   with lock:
     if coins_inserted < PRICE:
       resp = Response(status=403)
-      resp.headers["X-Coins"] = "0"
+      resp.headers["X-Coins"] = str(coins_inserted)
       return resp
 
 
@@ -93,9 +93,8 @@ def put_inventory_purchase(beverage_id: int):
       return resp
 
     #return 200 if possible to buy beverage
-    can_buy = coins_inserted // PRICE
-    beverages_vended = min(can_buy, inventory[idx])
-    change = coins_inserted - (beverages_vended * PRICE)
+    beverages_vended = 1
+    change = coins_inserted - PRICE
     inventory[idx] -= beverages_vended
     coins_inserted = 0
 
