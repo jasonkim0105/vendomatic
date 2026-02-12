@@ -1,9 +1,10 @@
 # vendomatic
 Vend-O-Matic project
-##Requirements
+## Requirements
+-Python 3.9+ (coded in 3.12)
 
--Python 3.9+ (Coded in 3.12)
--macOS/Linux/Windows
+-macOs/Linux/Windows
+
 -pip
 
 ## Setup
