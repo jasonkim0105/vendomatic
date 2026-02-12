@@ -47,7 +47,7 @@ def delete_coin():
   return resp
 
 
-#GET /coins (return inserted coins. not required)
+#GET /coins (return inserted coins. not required, just for testing)
 @app.route("/coins", methods=["GET"])
 def get_coins():
    global coins_inserted
