@@ -18,7 +18,9 @@ def home():
 @app.route("/", methods=["PUT"])
 def insert_coin():
   global coins_inserted
-  body = request.get_json()
+  body = request.get_json(silent=True)
+  if body is None:
+    return jsonify({"error": 'Body must be {"coin": 1}'}), 400
   coin = body.get("coin")
 
   if coin != 1:
