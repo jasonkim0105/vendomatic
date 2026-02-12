@@ -5,7 +5,7 @@ from typing import List
 app = Flask(__name__)
 
 coins_inserted: int = 0
-inventory = 5 * 3
+inventory = [5] * 3
 
 
 @app.route("/")
@@ -40,9 +40,17 @@ def get_coins():
    global coins_inserted
    return jsonify(coins_inserted), 200
 
-#GET /inventory
+#GET /inventory (as an array of integers)
+@app.route("/inventory", methods=["GET"])
+def get_inventory():
+  global inventory
+  return jsonify(list(inventory))
 
 #GET /iventory/:id
+@app.route("/inventory/<int:beverage_id>", methods=["GET"])
+def get_inventory_id(beverage_id: int):
+  return jsonify(inventory[beverage_id - 1]), 200
+
 #PUT /inventory/:id
 
 
