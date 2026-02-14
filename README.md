@@ -23,7 +23,11 @@ Vend-O-Matic project
    ```
    python main.py
    ```
-
+5. Run Pytest
+   ```
+   pip install pytest
+   pytest -q
+   ```
 ## Testing
 
 Testing was done via Postman
